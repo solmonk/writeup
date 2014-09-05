@@ -1,27 +1,5 @@
 # Blind sql injection
 
-## 개요
-
-blind sql injection이란, sql injection은 가능하지만 query의 결과를 볼 수 없거나, 혹은 아주 제한적으로만 보일 경우에 사용되는 테크닉이다. 이러한 상황에서는 굉장히 제한적인 정보만이 주어진다. 가령 매치되는 결과가 있으면 있다고 보여주고, 없으면 없다고 보여주는 웹 서비스가 있다고 해 보자. 쿼리는 대충 이럴 것이고..
-
-```sql
-select count(*) from table where id='your input'
-```
-
-결과가 1 이상이면 그렇다는 대답이 돌아올 것이다. 이렇게 된 이상 우리가 인젝션을 해서 쿼리를 잘 짜도 한 번에 얻을 수 있는 정보는 그렇다/아니다 둘 뿐이다.
-
-따라서 blind sql injection에서는 기본적으로 여러 번의 쿼리를 통해 db랑 스무고개를 한다. 한번의 쿼리로 알 수 있는 정보가 어떤 문장의 참/거짓 뿐이니까, 예컨대 아래와 같이 하는 것이다.
-
-* 패스워드의 첫번째 글자가 'a'이니? -> 아니
-* 패스워드의 첫번째 글자가 'b'이니? -> 아니
-* 패스워드의 첫번째 글자가 'c'이니? -> 응
-* 패스워드의 두번째 글자가 'a'이니? -> 아니
-* ....
-* 다 구할 때까지 반복
-
-이는 모든 blind sql injection의 기본 원리가 된다.
-
-
 ## 기본 틀 짜기
 
 ### 화면으로 참 거짓은 구분할 수 없을 때
@@ -31,12 +9,10 @@ select count(*) from table where id='your input'
 ```sql
 select * from table where id=if(statement, 1,2)
 ```
-이런 경우 statement가 참이면 1번 id에 해당하는 결과물, 거짓이면 2번 id에 해당하는 결과물이 보여질 것이다.
 
 ```sql
 select * from table where id=0 or statement
 ```
-이것도 비슷하다.
 
 ### 화면으로 결과를 알 수 없으나 error가 보일 때
 
@@ -129,14 +105,7 @@ string으로 된 value를 빼낸다고 했을 때 대체로 한 글자씩 맞추
 (substr(lpad(bin(ascii(substr(target, i, 1))),8,0), j, 1) = 0x31)
 ```
 
-대강 설명하자면 target의 `i`번째 글자를 8자리 2진수로 나타낸 다음 다시 각 `j`번째 자리가 1인지를 검사하는 것이다.
-
 물론 이게 싫다면 binary search를 해도 되지만 아마 그게 더 귀찮을 것이다..
-
-
-## 코딩하기
-
-이제 입맛대로 코딩만 하면 된다. for문이랑 http request  보내고 받아오는 법만 알면 됨
 
 ## 주의
 

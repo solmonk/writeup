@@ -24,15 +24,31 @@ select id, pw from users where id='admin' and pw='asdf'
 * 최근에는 퍼즐급으로 진화함
 * 잘하면 sql력이 올라..가나?
 * 해킹의 기본 원리를 충실히 따른다.
+ - 취약한 부분을 찾음
+ - 데이터가 어떻게 흘러가는지 봄
+ - security measure를 확인
+ - 스크립트 작성
+* (일단은 말로 설명해 보자)
+* http://websec.wordpress.com
+
+* https://github.com/ctfs/write-ups-2014/tree/master/codegate-preliminary-2014/120
+* https://kitctf.de/writeups/gits2015/aart/
 
 ### XSS
 
 * 고전2이지만 CTF에서는 많이 다루어지지 않아서 (왜일까) 최근 핫함
 * 역시 해킹의 기본 원리에 충실하다.
+* https://rzhou.org/~ricky/seccon2014/xss_bonsai/gen2.py
+* https://github.com/ctfs/write-ups-2014/blob/a0c08f898261cd1bd2deeaf03df892d7001b594d/csaw-ctf-2014/hashes/README.md
+* https://github.com/ctfs/write-ups-2014/blob/a0c08f898261cd1bd2deeaf03df892d7001b594d/plaid-ctf-2014/bronies/README.md (csrf+memcorruption+xss)
 
 ### logical flaw
 
-웹을 가장한 pwnable이라고 생각하면 좋다. 게임에도 들어오는 그런 종류의 공격들. 음수를 넣는다던가.
+웹 어플리케이션을 exploit해 보자. 게임에도 들어오는 그런 종류의 공격들. 음수를 넣는다던가.
+
+* shell command injection
+* 기타 온갖 종류의 injection
+* https://systemoverlord.com/blog/2014/04/14/plaidctf-2014-reekeeeee/
 
 ### php
 
@@ -43,20 +59,26 @@ select id, pw from users where id='admin' and pw='asdf'
 * strcmp
 * echo
 * system/exec
+* file inclusion
 * misc
 
 ## forensic
 
-툴이 반은 한다. 윈도우용이 많아 좀 슬프다.
+툴이 반은 한다. 윈도우용이 많아 좀 슬프다. hex editor is your friend
 
 ### network
 
 * 이건 배워두면 꽤 실용적이다.
 * wireshark를 잘 다룰 줄 아는 것이 좋다.
+* https://github.com/ctfs/write-ups-2014/blob/a0c08f898261cd1bd2deeaf03df892d7001b594d/csaw-ctf-2014/why-not-sftp/README.md
+* https://github.com/ctfs/write-ups-2014/tree/a0c08f898261cd1bd2deeaf03df892d7001b594d/csaw-ctf-2014/big-data
+* https://github.com/ctfs/write-ups-2015/tree/master/ghost-in-the-shellcode-2015/forensics/cloudfs
 
 ### disk image analysis
 
-* 자살행
+* 자살행 (사실 제일 실용적이긴 함)
+* https://github.com/ctfs/write-ups-2014/tree/master/plaid-ctf-2014/zfs
+* https://github.com/ctfs/write-ups-2014/tree/master/csaw-ctf-2014/fluffy-no-more
 
 ### steganography
 
@@ -73,6 +95,7 @@ select id, pw from users where id='admin' and pw='asdf'
 * Substitution
 * Vigenere
 * 기타 미궁에서나 쓸법한 부호들
+* https://ucs.fbi.h-da.de/writeup-csaw-psifer-school/
 
 ### modern
 
@@ -80,8 +103,19 @@ select id, pw from users where id='admin' and pw='asdf'
 * hash collision
 * 기타 무서운 것들
 * 수학
+* https://github.com/ctfs/write-ups-2014/tree/master/ghost-in-the-shellcode-2014/gitzino
 
 ## misc
 
 * recon
 * etc
+
+### pwnable
+
+* 리눅스 관련 지식을 요할 때도 있다.
+* 파이썬 문제가 나올 때도 있다.
+
+* heartbleed / shellshock
+* https://github.com/ctfs/write-ups-2014/tree/a0c08f898261cd1bd2deeaf03df892d7001b594d/csaw-ctf-2014/pybabbies
+* https://blog.inexplicity.de/plaidctf-2013-pyjail-writeup-part-i-breaking-the-sandbox.html
+* https://fail0verflow.com/blog/2014/plaidctf2014-pwn375-__nightmares__.html

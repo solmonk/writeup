@@ -119,3 +119,9 @@ select id, pw from users where id='admin' and pw='asdf'
 * https://github.com/ctfs/write-ups-2014/tree/a0c08f898261cd1bd2deeaf03df892d7001b594d/csaw-ctf-2014/pybabbies
 * https://blog.inexplicity.de/plaidctf-2013-pyjail-writeup-part-i-breaking-the-sandbox.html
 * https://fail0verflow.com/blog/2014/plaidctf2014-pwn375-__nightmares__.html
+
+### extra
+
+* 내가? 이걸? 풀수있나? 하는 생각을 버리자
+* 해킹은 기술이고 중요한 것은 번뜩이는 아이디어
+* 기술은 48시간 안에도 배울 수 있다

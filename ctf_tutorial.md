@@ -64,7 +64,10 @@ select id, pw from users where id='admin' and pw='asdf'
 
 ## forensic
 
-툴이 반은 한다. 윈도우용이 많아 좀 슬프다. hex editor is your friend
+툴이 반은 한다. 윈도우용이 많아 좀 슬프다. 그렇지만 잘하는 사람은 석기시대 도구로도 한다.
+* file
+* string
+* hexeditor
 
 ### network
 
@@ -76,14 +79,13 @@ select id, pw from users where id='admin' and pw='asdf'
 
 ### disk image analysis
 
-* 자살행 (사실 제일 실용적이긴 함)
+* 아... (사실 제일 실용적이긴 함)
 * https://github.com/ctfs/write-ups-2014/tree/master/plaid-ctf-2014/zfs
 * https://github.com/ctfs/write-ups-2014/tree/master/csaw-ctf-2014/fluffy-no-more
 
 ### steganography
 
 * 자살행
-
 
 ## crypto
 
